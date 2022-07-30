@@ -1,8 +1,9 @@
 from flask import Flask, render_template
+import os
 from flask_socketio import SocketIO, send
 
 app = Flask(__name__)
-secret_key = "sri"
+app.secret_key = os.environ.get("SECRET")
 socketio = SocketIO(app)
 
 @app.route("/")
@@ -15,4 +16,4 @@ def message(data):
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    app.run()
