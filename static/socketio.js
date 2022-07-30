@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io.connect("https://sri-chats.herokuapp.com/");
 document.getElementById("send-btn").onclick = btnclicked;
 const posts = document.getElementById("posts")
 function btnclicked(){
